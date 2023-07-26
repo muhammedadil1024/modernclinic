@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Appointment | Modern Clinic {% endblock title %} {% block
+content %}
+<!-- contact section -->
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h3 class="bookmsg">{% comment %} {% for bookmsg in messages %} {{bookmsg}} {% endfor %} {% endcomment %}</h3>
+            <h2>Book Appointment</h2>
+        </div>
+        <div class="row book-row">
+            <div class="col-md-6">
+                <div class="form_container contact-form">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div>
+                            <input type="text" placeholder="Your Name" name="name" required />
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="Your Age"
+                                name="age"
+                                inputmode="numeric"
+                                pattern="[0-9]+"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="tel"
+                                placeholder="Phone Number"
+                                name="phone"
+                                inputmode="numeric"
+                                pattern="[0-9]+"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" name="email" required />
+                        </div>
+                        <div>
+                            <select name="doctor" id="id_doctor" class="dr-select" required>
+                                <option disabled selected value="">Select Doctor</option>
+                                {% for doctor in doctorobj %}
+                                <option value="{{ doctor.id }}">{{ doctor.doc_name }} ({{ doctor.doc_spec }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                onfocus="(this.type='date')"
+                                onblur="(this.type='text')"
+                                placeholder="Select Date"
+                                name="date"
+                                required
+                            />
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 img-margin">
+                <div class="img-box" style="height: 100%">
+                    <img class="img-book" src="{% static '/images/booking-img.jpg' %}" alt="Booking Img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end contact section -->
+{% endblock content %}

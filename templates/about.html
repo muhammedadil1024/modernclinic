@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load static %} {% block title %} About | Modern Clinic {% endblock title %} {% block content %}
+<!-- about section -->
+
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{% static '/images/about-img.jpg' %}" alt="About Img" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>About <span>Us</span></h2>
+                    </div>
+                    <p>
+                        Welcome to Modern Clinic, your trusted healthcare partner in Kochi, Kerala. Our state-of-the-art
+                        medical facility is committed to providing comprehensive and compassionate healthcare services to
+                        the community. With a team of highly skilled and experienced medical professionals, cutting-edge
+                        technology, and a patient-centric approach, we strive to deliver the best possible care to all our
+                        patients.
+                        <br />
+                        At Modern Clinic, our mission is to enhance the health and well-being of individuals and families in
+                        Kochi by offering top-quality healthcare services with a focus on integrity, empathy, and
+                        innovation. We aim to be a leading healthcare institution that sets the standard for excellence in
+                        medical care and patient satisfaction.
+                    </p>
+                    <a href="#"> Read More </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

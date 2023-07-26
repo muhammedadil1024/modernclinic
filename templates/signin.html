@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Sign In | Modern Clinic {% endblock title %} {% block content
+%}
+<!-- contact section -->
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>Sign In</h2>
+        </div>
+        <div class="row book-row">
+            <div class="col-md-6">
+                {% for msg in messages %}
+                <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <strong>{{ msg}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                <div class="form_container contact-form">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div>
+                            <input type="text" placeholder="Username" name="name" required />
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Password" name="password" required />
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="auth">Don't have an account? <a class="auth-link" href="{% url 'signup' %}">SignUp</a></div>
+            </div>
+            <div class="col-md-6 img-margin">
+                <div class="img-box for-log-img" style="height: 100%">
+                    <img class="img-book" src="{% static '/images/signup.svg' %}" alt="Booking Img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end contact section -->
+
+{% endblock content %}

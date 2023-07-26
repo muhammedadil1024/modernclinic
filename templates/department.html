@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Department | Modern Clinic {% endblock title %} {% block
+content %}
+<!-- department section -->
+
+<section class="department_section layout_padding">
+    <div class="department_container">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>Our Departments</h2>
+                <p>
+                    Our departments are specialized units that provide focused healthcare services to patients. They
+                    encompass a wide range of areas such as cardiology, emergency, radiology, surgery, and more. These
+                    departments collaborate to deliver comprehensive medical care, aiming to improve patient health outcomes
+                    and enhance overall well-being.
+                </p>
+            </div>
+            <div class="row">
+                {% for d in dept %}
+                <div class="col-md-3">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{{d.dep_image.url}}" alt="Department Images" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>{{d.dep_name}}</h5>
+                            <p>{{d.dep_description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% comment %}
+                <div class="col-md-3">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s2.png" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>Diagnosis</h5>
+                            <p>fact that a reader will be distracted by the readable page when looking at its layout.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s3.png" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>Surgery</h5>
+                            <p>fact that a reader will be distracted by the readable page when looking at its layout.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/s4.png" alt="" />
+                        </div>
+                        <div class="detail-box">
+                            <h5>First Aid</h5>
+                            <p>fact that a reader will be distracted by the readable page when looking at its layout.</p>
+                        </div>
+                    </div>
+                </div>
+                {% endcomment %} {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end department section -->
+
+{% endblock content %}

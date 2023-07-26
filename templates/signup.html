@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Sign Up | Modern Clinic {% endblock title %} {% block content
+%}
+<!-- signup section -->
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h3 class="bookmsg">{% comment %} {% for bookmsg in messages %} {{bookmsg}} {% endfor %} {% endcomment %}</h3>
+            <h2>Sign Up</h2>
+        </div>
+        <div class="row book-row">
+            <div class="col-md-6">
+                {% for msg in messages %}
+                <div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <strong>{{ msg}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                <div class="form_container contact-form">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div>
+                            <input type="text" placeholder="Username" name="name" required />
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" name="email" required />
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Password" name="password" required />
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Confirm Password" name="confirmpassword" required />
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="auth">Already have an account? <a class="auth-link" href="{% url 'signin' %}">SignIn</a></div>
+            </div>
+            <div class="col-md-6 img-margin">
+                <div class="img-box" style="height: 100%">
+                    <img class="img-book" src="{% static '/images/login-page.svg' %}" alt="Booking Img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end signup section -->
+
+{% endblock content %}
